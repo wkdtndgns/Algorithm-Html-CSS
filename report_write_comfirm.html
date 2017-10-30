@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+ <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+      .navbar {
+        background-color: #ffffff;
+      }
+      .navbar .navbar-brand {
+        color: #9aadb2;
+      }
+      .navbar .navbar-brand:hover,
+      .navbar .navbar-brand:focus {
+        color: #090909;
+      }
+      .navbar .navbar-text {
+        color: #9aadb2;
+      }
+      .navbar .navbar-nav .nav-link {
+        color: #9aadb2;
+        border-radius: .25rem;
+        margin: 0 0.25em;
+      }
+      .navbar .navbar-nav .nav-link:not(.disabled):hover,
+      .navbar .navbar-nav .nav-link:not(.disabled):focus {
+        color: #090909;
+      }
+      .navbar .navbar-nav .nav-item.active .nav-link,
+      .navbar .navbar-nav .nav-item.active .nav-link:hover,
+      .navbar .navbar-nav .nav-item.active .nav-link:focus,
+      .navbar .navbar-nav .nav-item.show .nav-link,
+      .navbar .navbar-nav .nav-item.show .nav-link:hover,
+      .navbar .navbar-nav .nav-item.show .nav-link:focus {
+        color: #090909;
+        background-color: #a2a39f;
+      }
+      .navbar .navbar-toggle {
+        border-color: #a2a39f;
+      }
+      .navbar .navbar-toggle:hover,
+      .navbar .navbar-toggle:focus {
+        background-color: #a2a39f;
+      }
+      .navbar .navbar-toggle .navbar-toggler-icon {
+        color: #9aadb2;
+      }
+      .navbar .navbar-collapse,
+      .navbar .navbar-form {
+        border-color: #9aadb2;
+      }
+      .navbar .navbar-link {
+        color: #9aadb2;
+      }
+      .navbar .navbar-link:hover {
+        color: #090909;
+      }
+
+      @media (max-width: 575px) {
+        .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
+          color: #9aadb2;
+        }
+        .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+        .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+          color: #090909;
+        }
+        .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active {
+          color: #090909;
+          background-color: #a2a39f;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
+          color: #9aadb2;
+        }
+        .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+        .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+          color: #090909;
+        }
+        .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
+          color: #090909;
+          background-color: #a2a39f;
+        }
+      }
+
+      @media (max-width: 991px) {
+        .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
+          color: #9aadb2;
+        }
+        .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+        .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+          color: #090909;
+        }
+        .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active {
+          color: #090909;
+          background-color: #a2a39f;
+        }
+      }
+
+      @media (max-width: 1199px) {
+        .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
+          color: #9aadb2;
+        }
+        .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+        .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+          color: #090909;
+        }
+        .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active {
+          color: #090909;
+          background-color: #a2a39f;
+        }
+      }
+
+      .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
+        color: #9aadb2;
+      }
+      .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+      .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+        color: #090909;
+      }
+      .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
+        color: #090909;
+        background-color: #a2a39f;
+      }
+      .row {
+        margin-left : auto;
+        margin-right : auto;
+      }
+
+      .footer { border: 1px padding: 30px 10px; }
+      .footer{ position: absolute; bottom: 0; text-align: center; width: 100% }
+      .footer img { margin-right: 20px;  }
+      .footer div:nth-child(2) { font: normal 9pt 굴림; color: #666;  }
+      .footer div:nth-child(3) { font: normal 9pt arial; color: #aaa; }
+
+      .container {
+        margin-top: 30px;
+        margin-left : auto;
+        margin-right : auto;
+      }
+      .information{
+        padding-top : 10px;
+        padding-bottom : 5px;
+        background-color : #E6E6E6;
+        border : 1px solid #D8D8D8;
+        border-radius : 5px;
+        text-align : left;
+      }
+      .reportEntity{
+        padding-left : 10px;
+        padding-right : 10px;
+        padding-top : 13px;
+        padding-bottom : 13px;
+        border : 1px solid #A4A4A4;
+        background-color : #D8D8D8;
+        font-weight : bold;
+        text-align : center;
+      }
+      .reportInput{
+        padding-left : 5px;
+        padding-right : 5px;
+        padding-top : 5px;
+        padding-bottom : 6px;
+        border : 1px solid #A4A4A4;
+      }
+      .mentiList{
+        padding-top : 12px;
+        padding-bottom : 11px;
+        border : 1px solid #A4A4A4;
+      }
+      .mentoPicture{
+        border : 1px solid #A4A4A4;
+        background-color : #D8D8D8;
+        text-align : center;
+        font-weight : bold;
+        padding-top : 10px;
+        padding-bottom : 10px;
+      }
+      .mentoPictureDisplay{
+        border : 1px solid #A4A4A4;
+        padding-left : 20px;
+        padding-right : 20px;
+        padding-top : 20px;
+        padding-bottom : 20px;
+      }
+      .upload{
+        border : 1px solid #A4A4A4;
+        background-color : #D8D8D8;
+        font-weight : bold;
+        padding-top : 7px;
+        padding-bottom : 7px;
+      }
+      .complete{
+        margin-top : 20px;
+      }
+      .input_time{
+        width : 60px;
+      }
+
+   </style>
+   <script type="text/javascript">
+    $(function () {
+      $('[data-toggle="popover"]').popover();
+    });
+    $('#myModal').on('shown.bs.modal', function () {
+      $('#myInput').focus()
+    });
+   </script>
+ </head>
+
+ <body>
+   <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html"><img src="img\title.png"/></a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">
+          <i class="glyphicon glyphicon-home"> 홈</i></a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">참여마당
+          <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="notice.html">공지사항</a></li>
+              <li><a href="question.html">건의사항</a></li>
+            </ul>
+        </li>
+        <li>
+          <a href="intro.html">멘토링 사업소개</a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">멘토링
+          <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="menti_apli.html">멘티 신청</a></li>
+              <li><a href="mento_apli.html">멘토 신청</a></li>
+              <li><a href="mento_list.html">멘토/멘티 목록</a></li>
+              <li><a href="mento_board.html">멘토링 게시판</a></li>
+              <li><a href="survey.html">설문조사</a></li>
+            </ul>
+        </li>
+        <li class="dropdown active">
+          <a class="dropdown-toggle" data-toggle="dropdown">멘토링 관리
+          <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="mento_timetable.html">멘티 시간표 확인</a></li>
+              <li class="active"><a href="report_write.html">보고서 작성</a></li>
+              <li><a href="board_manage.html">멘토링 과제게시판 관리</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">사이트 관리
+          <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="mento_open.html">멘토링 개설/폐쇄</a></li>
+              <li><a href="report_confirm.html">보고서 확인</a></li>
+              <li ><a href="survey_manage.html">설문조사 관리</a></li>
+              <li><a href="candidate_boolean.html">멘토, 멘티 신청기간 여부</a></li>
+              <li><a href="student_manage.html">회원 목록 관리</a></li>
+              <li><a href="intro_update.html">사업 안내문 수정</a></li>
+            </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login.html"><i class="glyphicon glyphicon-user"> 로그인</i></a></li>
+        <li><a href="sign.html"><i class="glyphicon glyphicon-pencil"> 회원가입</i></a></li>
+      </ul>
+    </div>
+   </nav>
+   <div>
+       <img src="img/topimage.jpg" class="img-responsive"/>
+   </div>
+   <div class="container">
+
+      <div class="row">
+        <div class="col-md-3">
+          <h1 class="my-4"><strong>멘토링 관리</strong></h1>
+          <div class="list-group">
+            <a href="mento_timetable.html" class="list-group-item">멘티 시간표 확인</a>
+            <a href="report_write.html" class="list-group-item active">보고서 작성</a>
+            <a href="board_manage.html" class="list-group-item">멘토링 과제게시판 관리</a>
+          </div>
+        </div>
+        <div class="col-md-9" id="reportView">
+          <h1><b>보고서 작성</b> - 보고서 확인</h1>
+          <hr/>
+          <table class="table table-bordered">
+            <tr>
+              <td class="reportEntity">멘토 이름</td>
+              <td class="reportValue">강ㅇㅇ</td>
+              <td class="reportEntity">제출 일자</td>
+              <td class="reportValue">2017-11-14</td>
+            </tr>
+            <tr>
+              <td class="reportEntity">멘토링 제목</td>
+              <td class="reportValue">작두를 탄 SQL 문장 분석</td>
+              <td class="reportEntity">진행 장소</td>
+              <td class="reportValue">6202</td>
+            </tr>
+            <tr>
+              <td class="reportEntity">교과목</td>
+              <td class="reportValue">데이터베이스 실습</td>
+              <td class="reportEntity">수업 방식</td>
+              <td class="reportValue">강의/실습</td>
+            </tr>
+            <tr>
+              <td class="reportEntity">수업 일자</td>
+              <td class="reportValue">2017-11-07</td>
+              <td class="reportEntity">시간</td>
+              <td class="reportValue">오후 3:00 - 오후 4:30</td>
+            </tr>
+            <tr>
+              <td class="reportEntity">멘토 결석 여부</td>
+              <td colspan="3" class="reportValue"></td>
+            </tr>
+            <tr>
+              <td class="reportEntity">수업 주제</td>
+              <td colspan="3" class="reportValue">View 응용하기</td>
+            </tr>
+            <tr>
+              <td class="reportEntity">수업 목표</td>
+              <td colspan="3" class="reportValue">실제로 View가 어떻게 응용되는지에 대해 공부할 수 있다.</td>
+            </tr>
+            <tr>
+              <td colspan="4" class="reportEntity">수업 소감</td>
+            </tr>
+            <tr>
+              <td colspan="4" class="reportValue">멘토들이 매우 열심히 해줘서 고마웠고 앞으로도 열심히 했으면 좋겠다.<br/>멘토들이 매우 열심히 해줘서 고마웠고 앞으로도 열심히 했으면 좋겠다.<br/>멘토들이 매우 열심히 해줘서 고마웠고 앞으로도 열심히 했으면 좋겠다.<br/>
+                멘토들이 매우 열심히 해줘서 고마웠고 앞으로도 열심히 했으면 좋겠다.<br/></td>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="4" class="reportEntity">멘토 사진</td>
+            </tr>
+            <tr>
+              <td colspan="4" class="reportValue"><img class="img-responsive" src="img/mento_active_picture.jpg"/></td>
+            </tr>
+          </table>
+          <div class="row">
+            <div class="col-md-12 information">
+              <p> ⊙ 보고서의 제출 기한은 따로 없습니다. 다만 수업 끝나는데로 작성해주시면 감사하겠습니다. </p>
+              <p> ⊙ 시간은 멘토와 멘티들이 협상한 시간대에서 작성을 해주셔야 인정됩니다. </p>
+              <p> ⊙ 멘토링 참석 비율이 2/3 미만인 경우에는 인정이 되지 않으니 참고하시길 바랍니다. </p>
+              <p> ⊙ 축제, 컨퍼런스 참석 보고서에 대해서는 수업 방식에 축제/컴퍼런스 참석으로 선택하시고, 수업 주제에는 참석한 축제, 컴퍼런스 이름을 작성해주고, 목표는 비워두셔도 됩니다. 교과목은 그대로 작성해주시면 되고 진행 장소는 축제나 컴퍼런스를 진행한 장소를 작성해주시면 됩니다</p>
+              <p> ⊙ 사진은 jpg, png 등 쉽게 구분이 가능한 확장명으로 올려주시고, 학번_n번째_멘토링.jpg, 학번_n번째_축제.jpg 이름으로 올려주셔야 합니다. </p>
+            </div>
+          </div>
+          <hr/>
+          <div class="complete" align="right">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-pencil"> 수정</i></button>
+            &nbsp&nbsp
+            <button class="btn btn-info" id="btnExport"><i class="glyphicon glyphicon-download-alt"> 보고서다운</i></button>
+            &nbsp&nbsp
+            <a href="report_write.html"><button class="btn btn-info"><i class="glyphicon glyphicon-arrow-left"> 목록으로</i></button></a>
+          </div>
+          <script>
+            $("#btnExport").click(function (e) {
+                window.open('data:application/vnd.ms-excel,' + encodeURIComponent($('#reportView').html()));
+                e.preventDefault();
+            });
+          </script>
+        </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h2><b>보고서 수정</b></h2>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-4 reportEntity">멘토 이름</div>
+                  <div class="col-md-8 reportInput"><input type="text" id="mentoName" class="form-control" value="강ㅇㅇ" readonly="readonly"/></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 reportEntity">제출 일자</div>
+                  <div class="col-md-8 reportInput"><input type="date" id="now_date" class="form-control" readonly="readonly" value="2017-11-14"/></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 reportEntity">멘토링 제목</div>
+                  <div class="col-md-8 reportInput"><input type="text" id="mentoObject" class="form-control" value="작두를 탄 SQL 문장 분석" readonly="readonly"/></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 reportEntity">진행 장소</div>
+                  <div class="col-md-8 reportInput"><input type="text" id="mentoPlace" class="form-control" placeholder="강의실 입력(축제는 장소)" value="6202"/></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2 reportEntity">교과목</div>
+                  <div class="col-md-4 reportInput"><input type="text" id="mentoSubject" class="form-control" placeholder="교과목을 입력하세요." value="데이터베이스 실습"/></div>
+                  <div class="col-md-2 reportEntity">수업 방식</div>
+                  <div class="col-md-4 reportInput">
+                    <select class="form-control">
+                      <option>--수업방식 선택--</option>
+                      <option>오리엔테이션</option>
+                      <option selected>강의/실습</option>
+                      <option>토론/팀워크</option>
+                      <option>프로젝트 진행 방식</option>
+                      <option>시험 중 질의 응답</option>
+                      <option>축제/컴퍼런스 참석</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 reportEntity">수업 일자</div>
+                  <div class="col-md-8 reportInput">
+                    <input type="date" id="mentoDate" class="form-control" value="2017-11-07"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 reportEntity">시간</div>
+                  <div class="col-md-8 reportInput form-inline">
+                    <input type="time" id="timeFrom" class="form-control" value="15:00"/>
+                    <h7>&nbsp&nbsp~&nbsp&nbsp</h7>
+                    <input type="time" id="timeTo" class="form-control" value="16:30"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3 reportEntity">멘토 결석 여부</div>
+                  <div class="col-md-9 mentiList">
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="menti1" value="김ㅇㅇ" data-toggle="collapse" data-target="#absent01"> 김ㅇㅇ
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="menti2" value="이ㅇㅇ" data-toggle="collapse" data-target="#absent02"> 이ㅇㅇ
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="menti3" value="박ㅇㅇ" data-toggle="collapse" data-target="#absent03"> 박ㅇㅇ
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="menti4" value="고ㅇㅇ" data-toggle="collapse" data-target="#absent04"> 고ㅇㅇ
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="menti5" value="유ㅇㅇ" data-toggle="collapse" data-target="#absent05"> 유ㅇㅇ
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="absent01" class="collapse">
+                    <div class="col-md-3 reportEntity">김ㅇㅇ 사유</div>
+                    <div class="col-md-9 reportInput"><input type="text" id="absentContext1" class="form-control" placeholder="결석 사유를 입력해주세요." /></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="absent02" class="collapse">
+                    <div class="col-md-3 reportEntity">이ㅇㅇ 사유</div>
+                    <div class="col-md-9 reportInput"><input type="text" id="absentContext2" class="form-control" placeholder="결석 사유를 입력해주세요." /></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="absent03" class="collapse">
+                    <div class="col-md-3 reportEntity">박ㅇㅇ 사유</div>
+                    <div class="col-md-9 reportInput"><input type="text" id="absentContext3" class="form-control" placeholder="결석 사유를 입력해주세요." /></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="absent04" class="collapse">
+                    <div class="col-md-3 reportEntity">고ㅇㅇ 사유</div>
+                    <div class="col-md-9 reportInput"><input type="text" id="absentContext4" class="form-control" placeholder="결석 사유를 입력해주세요." /></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="absent05" class="collapse">
+                    <div class="col-md-3 reportEntity">유ㅇㅇ 사유</div>
+                    <div class="col-md-9 reportInput"><input type="text" id="absentContext5" class="form-control" placeholder="결석 사유를 입력해주세요." /></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3 reportEntity">수업 주제</div>
+                  <div class="col-md-9 reportInput"><input type="text" id="mentoObject" class="form-control" placeholder="수업 주제 입력(축제, 컴퍼런스는 참석한 축제, 컴퍼런스 이름 작성.)" value="View 응용하기"/></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3 reportEntity">수업 목표</div>
+                  <div class="col-md-9 reportInput"><input type="text" id="mentoObject" class="form-control" placeholder="수업 목표 입력(축제, 컴퍼런스는 비워두셔도 됩니다.)" value="실제로 View가 어떻게 응용되는지에 대해 공부할 수 있다."/></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 reportEntity">멘토 소감</div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 reportInput"><textarea class="form-control" rows="7" placeholder="적어도 500자 이내로 입력(축제, 컴퍼런스도 해당됩니다.)"></textarea></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 mentoPicture">이전에 올린 사진</div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 mentoPictureDisplay">
+                    <div class="thumbnail-wrapper">
+                      <img class="img-responsive" src="img/mento_active_picture.jpg"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3 upload">사진 불러오기</div>
+                  <div class="col-md-9 reportInput">
+                    <input id="input-b1" name="input-b1" type="file" class="file">
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal"><i class="glyphicon glyphicon-remove"> 취소</i></button>
+                <button type="button" class="btn btn-info" data-dismiss="modal"><i class="glyphicon glyphicon-ok"> 완료</i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <hr/>
+    <div class="row">
+      <div class="col-md-3" align="center">
+        <img src="img/skhuniv.jpg"/>
+      </div>
+      <div class="col-md-9">
+        <p>08359 서울시 구로구 연동로 320 / 지하철 1, 7호선 온수역(성공회대입구역)</p>
+        <p><i class="glyphicon glyphicon-earphone"></i> TEL : 02-2610-4114 &nbsp&nbsp|&nbsp&nbsp <i class="glyphicon glyphicon-print"></i> FAX : 02-2683-8858</p>
+      </div>
+    </div>
+ </body>
+</html>

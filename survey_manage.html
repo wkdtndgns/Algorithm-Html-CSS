@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html>
+ <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages: ['corechart']});
+    </script>
+    <style>
+      .navbar {
+        background-color: #ffffff;
+      }
+      .navbar .navbar-brand {
+        color: #9aadb2;
+      }
+      .navbar .navbar-brand:hover,
+      .navbar .navbar-brand:focus {
+        color: #090909;
+      }
+      .navbar .navbar-text {
+        color: #9aadb2;
+      }
+      .navbar .navbar-nav .nav-link {
+        color: #9aadb2;
+        border-radius: .25rem;
+        margin: 0 0.25em;
+      }
+      .navbar .navbar-nav .nav-link:not(.disabled):hover,
+      .navbar .navbar-nav .nav-link:not(.disabled):focus {
+        color: #090909;
+      }
+      .navbar .navbar-nav .nav-item.active .nav-link,
+      .navbar .navbar-nav .nav-item.active .nav-link:hover,
+      .navbar .navbar-nav .nav-item.active .nav-link:focus,
+      .navbar .navbar-nav .nav-item.show .nav-link,
+      .navbar .navbar-nav .nav-item.show .nav-link:hover,
+      .navbar .navbar-nav .nav-item.show .nav-link:focus {
+        color: #090909;
+        background-color: #a2a39f;
+      }
+      .navbar .navbar-toggle {
+        border-color: #a2a39f;
+      }
+      .navbar .navbar-toggle:hover,
+      .navbar .navbar-toggle:focus {
+        background-color: #a2a39f;
+      }
+      .navbar .navbar-toggle .navbar-toggler-icon {
+        color: #9aadb2;
+      }
+      .navbar .navbar-collapse,
+      .navbar .navbar-form {
+        border-color: #9aadb2;
+      }
+      .navbar .navbar-link {
+        color: #9aadb2;
+      }
+      .navbar .navbar-link:hover {
+        color: #090909;
+      }
+
+      @media (max-width: 575px) {
+        .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
+          color: #9aadb2;
+        }
+        .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+        .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+          color: #090909;
+        }
+        .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active {
+          color: #090909;
+          background-color: #a2a39f;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
+          color: #9aadb2;
+        }
+        .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+        .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+          color: #090909;
+        }
+        .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
+          color: #090909;
+          background-color: #a2a39f;
+        }
+      }
+
+      @media (max-width: 991px) {
+        .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
+          color: #9aadb2;
+        }
+        .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+        .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+          color: #090909;
+        }
+        .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active {
+          color: #090909;
+          background-color: #a2a39f;
+        }
+      }
+
+      @media (max-width: 1199px) {
+        .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
+          color: #9aadb2;
+        }
+        .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+        .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+          color: #090909;
+        }
+        .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active {
+          color: #090909;
+          background-color: #a2a39f;
+        }
+      }
+
+      .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
+        color: #9aadb2;
+      }
+      .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+      .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+        color: #090909;
+      }
+      .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
+        color: #090909;
+        background-color: #a2a39f;
+      }
+      .row {
+        margin-left : auto;
+        margin-right : auto;
+      }
+
+      .footer { border: 1px padding: 30px 10px; }
+      .footer{ position: absolute; bottom: 0; text-align: center; width: 100% }
+      .footer img { margin-right: 20px;  }
+      .footer div:nth-child(2) { font: normal 9pt 굴림; color: #666;  }
+      .footer div:nth-child(3) { font: normal 9pt arial; color: #aaa; }
+
+      .container {
+        margin-top: 30px;
+        margin-left : auto;
+        margin-right : auto;
+      }
+      .information{
+        padding-top : 10px;
+        padding-bottom : 5px;
+        background-color : #E6E6E6;
+        border : 1px solid #D8D8D8;
+        border-radius : 5px;
+        text-align : left;
+      }
+      .statisEntity{
+        padding-left : 5px;
+        padding-right : 5px;
+        padding-top : 5px;
+        padding-bottom : 5px;
+        border : 1px solid #A4A4A4;
+        background-color : #D8D8D8;
+        font-weight : bold;
+        text-align : center;
+      }
+      .statisValue{
+        padding-left : 5px;
+        padding-right : 5px;
+        padding-top : 5px;
+        padding-bottom : 5px;
+      }
+   </style>
+   <script>
+   $('#myTab a').click(function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+  })
+   </script>
+ </head>
+
+ <body>
+   <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html"><img src="img\title.png"/></a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">
+          <i class="glyphicon glyphicon-home"> 홈</i></a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">참여마당
+          <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="notice.html">공지사항</a></li>
+              <li><a href="question.html">건의사항</a></li>
+            </ul>
+        </li>
+        <li>
+          <a href="intro.html">멘토링 사업소개</a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">멘토링
+          <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="menti_apli.html">멘티 신청</a></li>
+              <li><a href="mento_apli.html">멘토 신청</a></li>
+              <li><a href="mento_list.html">멘토/멘티 목록</a></li>
+              <li><a href="mento_board.html">멘토링 게시판</a></li>
+              <li><a href="survey.html">설문조사</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">멘토링 관리
+          <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="mento_timetable.html">멘티 시간표 확인</a></li>
+              <li><a href="report_write.html">보고서 작성</a></li>
+              <li><a href="board_manage.html">멘토링 과제게시판 관리</a></li>
+            </ul>
+        </li>
+        <li class="dropdown active">
+          <a class="dropdown-toggle" data-toggle="dropdown">사이트 관리
+          <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="mento_open.html">멘토링 개설/폐쇄</a></li>
+              <li><a href="report_confirm.html">보고서 확인</a></li>
+              <li class="active"><a href="survey_manage.html">설문조사 관리</a></li>
+              <li><a href="candidate_boolean.html">멘토, 멘티 신청기간 여부</a></li>
+              <li><a href="student_manage.html">회원 목록 관리</a></li>
+              <li><a href="intro_update.html">사업 안내문 수정</a></li>
+            </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login.html"><i class="glyphicon glyphicon-user"> 로그인</i></a></li>
+        <li><a href="sign.html"><i class="glyphicon glyphicon-pencil"> 회원가입</i></a></li>
+      </ul>
+    </div>
+   </nav>
+   <div>
+       <img src="img/topimage.jpg" class="img-responsive"/>
+   </div>
+   <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-3">
+          <h1 class="my-4"><strong>사이트 관리</strong></h1>
+          <div class="list-group">
+            <a href="mento_open.html" class="list-group-item ">멘토링 개설/폐쇄</a>
+            <a href="report_confirm.html" class="list-group-item ">보고서 확인</a>
+            <a href="survey_manage.html" class="list-group-item active">설문조사 관리</a>
+            <a href="candidate_boolean.html" class="list-group-item ">멘토, 멘티 신청기간 여부</a>
+            <a href="student_manage.html" class="list-group-item ">회원 목록 관리</a>
+            <a href="intro_update.html" class="list-group-item ">사업 안내문 수정</a>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <h1 class="my-4"><strong>설문조사 관리</strong></h1>
+          <!-- Team Members Row -->
+          <div class="row">
+            <div class="col-md-12">
+              <h2>설문조사 통계</h2>
+              <hr/>
+              <div id="total_statis" style="margin-bottom : 10px;" width="100%"></div>
+              <script type="text/javascript">
+                google.charts.load('current', {'packages':['bar']});
+                google.charts.setOnLoadCallback(drawStuff);
+
+                function drawStuff() {
+                  var data = new google.visualization.arrayToDataTable([
+                    ['연도', '참석률(%)', '평균 만족도(%)'],
+                    ['2017-1학기',  80/100*100, 80],
+                    ['2016-2학기',  74/80*100, 90],
+                    ['2016-1학기',  56/70*100, 75],
+                    ['2015-2학기', 69/75*100, 85]
+                  ]);
+
+                  var options = {
+                    title: '전체 만족도(%)',
+                    height: 300,
+                    legend: { position: 'none' },
+                    chart: { title: '설문조사 참석률 통계',
+                             subtitle: '2년간 학기 별 설문조사 참석률입니다.' },
+                    bars: 'horizontal', // Required for Material Bar Charts.
+                    axes: {
+                      x: {
+                        0: { side: 'top', label: '퍼센트(%)'} // Top x-axis.
+                      }
+                    },
+                    bar: { groupWidth: "90%" }
+                  };
+
+                  var chart = new google.charts.Bar(document.getElementById('total_statis'));
+                  chart.draw(data, options);
+                };
+              </script>
+              <table class="table table-bordered">
+                <thead class="statisEntity">
+                  <tr>
+                    <td>설문 기간</td>
+                    <td>Mentoring 참여 인원</td>
+                    <td>설문조사 참석 인원</td>
+                    <td>공동 만족도(%)</td>
+                    <td>멘토 만족도(%)</td>
+                    <td>멘티 만족도(%)</td>
+                    <td>통계 확인</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2017학년도 1학기</td>
+                    <td>100</td>
+                    <td>80</td>
+                    <td>80</td>
+                    <td>80</td>
+                    <td>80</td>
+                    <td>
+                      <button type="button" class="btn btn-info" type="button" data-toggle="collapse" data-target="#statisView" aria-expanded="false">
+                        <i class="glyphicon glyphicon-signal"> 확인</i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2016학년도 2학기</td>
+                    <td>80</td>
+                    <td>74</td>
+                    <td>75</td>
+                    <td>100</td>
+                    <td>90</td>
+                    <td>
+                      <button type="button" class="btn btn-info" type="button" data-toggle="collapse" data-target="#statisView" aria-expanded="false">
+                        <i class="glyphicon glyphicon-signal"> 확인</i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2016학년도 1학기</td>
+                    <td>70</td>
+                    <td>56</td>
+                    <td>90</td>
+                    <td>100</td>
+                    <td>90</td>
+                    <td>
+                      <button type="button" class="btn btn-info" type="button" data-toggle="collapse" data-target="#statisView" aria-expanded="false">
+                        <i class="glyphicon glyphicon-signal"> 확인</i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2015학년도 2학기</td>
+                    <td>75</td>
+                    <td>69</td>
+                    <td>80</td>
+                    <td>100</td>
+                    <td>90</td>
+                    <td>
+                      <button type="button" class="btn btn-info" type="button" data-toggle="collapse" data-target="#statisView" aria-expanded="false">
+                        <i class="glyphicon glyphicon-signal"> 확인</i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <hr/>
+              </div>
+              <div id="statisView" class="collapse">
+                <h2>2017년 1학기 설문조사 통계</h2>
+                <h3>총 참여 인원 : 80명 (멘토 : 16명 / 멘티 : 64명)</h3>
+                <h3><strong>공동 참여 문제에 대한 현황</strong></h3>
+                <table class="table table-bordered">
+                  <thead class="statisEntity">
+                    <tr>
+                      <td>문제</td>
+                      <td>5(매우 만족)</td>
+                      <td>4(만족)</td>
+                      <td>3(보통)</td>
+                      <td>2(미흡)</td>
+                      <td>1(매우 미흡)</td>
+                      <td>문제 별 만족도(%)</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>SKHU Mentoring을 통해서 조원과 친해질 수 있는 계기가 되었다.</td>
+                      <td>60</td>
+                      <td>5</td>
+                      <td>5</td>
+                      <td>5</td>
+                      <td>5</td>
+                      <td>87.5</td>
+                    </tr>
+                    <tr>
+                      <td>SKHU Mentoring을 통해서 좋은 멘토링을 하는데 도움이 되었다.</td>
+                      <td>40</td>
+                      <td>10</td>
+                      <td>10</td>
+                      <td>10</td>
+                      <td>10</td>
+                      <td>75</td>
+                    </tr>
+                    <tr>
+                      <td>다음 학기에 SKHU Mentoring을 타 학우들에게 추천하고 싶다.</td>
+                      <td>30</td>
+                      <td>30</td>
+                      <td>10</td>
+                      <td>5</td>
+                      <td>5</td>
+                      <td>78.75</td>
+                    </tr>
+                    <tr>
+                      <td class="statisEntity" colspan="6">총 만족도</td>
+                      <td>80</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div id="question01"></div>
+                    <script type="text/javascript">
+                      google.charts.load("current", {packages:["corechart"]});
+                      google.charts.setOnLoadCallback(drawChart);
+                      function drawChart() {
+                        var data = google.visualization.arrayToDataTable([
+                          ['점수', '투표 인원'],
+                          ['매우 만족', 40],
+                          ['만족', 5],
+                          ['보통', 5],
+                          ['미흡', 5],
+                          ['매우 미흡', 5]
+                        ]);
+
+                        var options = {
+                          title: 'SKHU Mentoring을 통해서 조원과 친해질 수 있는 계기가 되었다.',
+                          pieHole: 0.4,
+                          height : 300,
+                        };
+
+                        var chart = new google.visualization.PieChart(document.getElementById('question01'));
+                        chart.draw(data, options);
+                      }
+                      </script>
+                  </div>
+                  <div class="col-md-6">
+                    <div id="question02"></div>
+                      <script type="text/javascript">
+                        google.charts.load("current", {packages:["corechart"]});
+                        google.charts.setOnLoadCallback(drawChart);
+                        function drawChart() {
+                          var data = google.visualization.arrayToDataTable([
+                            ['점수', '투표 인원'],
+                            ['매우 만족', 40],
+                            ['만족', 10],
+                            ['보통', 10],
+                            ['미흡', 10],
+                            ['매우 미흡', 10]
+                          ]);
+
+                          var options = {
+                            title: 'SKHU Mentoring을 통해서 좋은 멘토링을 하는데 도움이 되었다.',
+                            pieHole: 0.4,
+                            height : 300,
+                          };
+
+                          var chart = new google.visualization.PieChart(document.getElementById('question02'));
+                          chart.draw(data, options);
+                        }
+                        </script>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3"></div>
+                  <div class="col-md-6">
+                    <div id="question03"></div>
+                      <script type="text/javascript">
+                        google.charts.load("current", {packages:["corechart"]});
+                        google.charts.setOnLoadCallback(drawChart);
+                        function drawChart() {
+                          var data = google.visualization.arrayToDataTable([
+                            ['점수', '투표 인원'],
+                            ['매우 만족', 30],
+                            ['만족', 30],
+                            ['보통', 10],
+                            ['미흡', 5],
+                            ['매우 미흡', 5]
+                          ]);
+
+                          var options = {
+                            title: '다음 학기에 SKHU Mentoring을 타 학우들에게 추천하고 싶다.',
+                            pieHole: 0.4,
+                            height : 300,
+                          };
+
+                          var chart = new google.visualization.PieChart(document.getElementById('question03'));
+                          chart.draw(data, options);
+                        }
+                        </script>
+                  </div>
+                  <div class="col-md-3"></div>
+                </div>
+                <h3><strong>멘토 문제에 대한 현황</strong></h3>
+                <table class="table table-bordered">
+                  <thead class="statisEntity">
+                    <tr>
+                      <td>문제</td>
+                      <td>5(매우 만족)</td>
+                      <td>4(만족)</td>
+                      <td>3(보통)</td>
+                      <td>2(미흡)</td>
+                      <td>1(매우 미흡)</td>
+                      <td>문제 별 만족도(%)</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>수업 시간에 멘토들이 잘 따른다.</td>
+                      <td>12</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>87.5</td>
+                    </tr>
+                    <tr>
+                      <td>멘토링을 통해서 내 자신의 실력을 다시 되짚는 계기가 되었다.</td>
+                      <td>8</td>
+                      <td>2</td>
+                      <td>2</td>
+                      <td>2</td>
+                      <td>2</td>
+                      <td>75</td>
+                    </tr>
+                    <tr>
+                      <td>멘티들과 서로 소통하는 계기가 되었다.</td>
+                      <td>6</td>
+                      <td>6</td>
+                      <td>2</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>78.75</td>
+                    </tr>
+                    <tr>
+                      <td class="statisEntity" colspan="6">총 만족도</td>
+                      <td>80</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div id="mentoQuest01"></div>
+                    <script type="text/javascript">
+                      google.charts.load("current", {packages:["corechart"]});
+                      google.charts.setOnLoadCallback(drawChart);
+                      function drawChart() {
+                        var data = google.visualization.arrayToDataTable([
+                          ['점수', '투표 인원'],
+                          ['매우 만족', 12],
+                          ['만족', 1],
+                          ['보통', 1],
+                          ['미흡', 1],
+                          ['매우 미흡', 1]
+                        ]);
+
+                        var options = {
+                          title: '수업 시간에 멘토들이 잘 따른다.',
+                          pieHole: 0.4,
+                          height : 300,
+                        };
+
+                        var chart = new google.visualization.PieChart(document.getElementById('mentoQuest01'));
+                        chart.draw(data, options);
+                      }
+                      </script>
+                  </div>
+                  <div class="col-md-6">
+                    <div id="mentoQuest02"></div>
+                      <script type="text/javascript">
+                        google.charts.load("current", {packages:["corechart"]});
+                        google.charts.setOnLoadCallback(drawChart);
+                        function drawChart() {
+                          var data = google.visualization.arrayToDataTable([
+                            ['점수', '투표 인원'],
+                            ['매우 만족', 8],
+                            ['만족', 2],
+                            ['보통', 2],
+                            ['미흡', 2],
+                            ['매우 미흡', 2]
+                          ]);
+
+                          var options = {
+                            title: '멘토링을 통해서 내 자신의 실력을 다시 되짚는 계기가 되었다.',
+                            pieHole: 0.4,
+                            height : 300,
+                          };
+
+                          var chart = new google.visualization.PieChart(document.getElementById('mentoQuest02'));
+                          chart.draw(data, options);
+                        }
+                        </script>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3"></div>
+                  <div class="col-md-6">
+                    <div id="mentoQuest03"></div>
+                      <script type="text/javascript">
+                        google.charts.load("current", {packages:["corechart"]});
+                        google.charts.setOnLoadCallback(drawChart);
+                        function drawChart() {
+                          var data = google.visualization.arrayToDataTable([
+                            ['점수', '투표 인원'],
+                            ['매우 만족', 6],
+                            ['만족', 6],
+                            ['보통', 2],
+                            ['미흡', 1],
+                            ['매우 미흡', 1]
+                          ]);
+
+                          var options = {
+                            title: '멘티들과 서로 소통하는 계기가 되었다.',
+                            pieHole: 0.4,
+                            height : 300,
+                          };
+
+                          var chart = new google.visualization.PieChart(document.getElementById('mentoQuest03'));
+                          chart.draw(data, options);
+                        }
+                        </script>
+                  </div>
+                  <div class="col-md-3"></div>
+                </div>
+                <hr/>
+                <h3><strong>멘티 문제에 대한 현황</strong></h3>
+                <table class="table table-bordered">
+                  <thead class="statisEntity">
+                    <tr>
+                      <td>문제</td>
+                      <td>5(매우 만족)</td>
+                      <td>4(만족)</td>
+                      <td>3(보통)</td>
+                      <td>2(미흡)</td>
+                      <td>1(매우 미흡)</td>
+                      <td>문제 별 만족도(%)</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>멘토가 수업 준비를 성실하게 해 온다.</td>
+                      <td>48</td>
+                      <td>4</td>
+                      <td>4</td>
+                      <td>4</td>
+                      <td>4</td>
+                      <td>87.5</td>
+                    </tr>
+                    <tr>
+                      <td>멘토가 내주는 과제나 수업 내용들이 도움이 되었다.</td>
+                      <td>32</td>
+                      <td>8</td>
+                      <td>8</td>
+                      <td>8</td>
+                      <td>8</td>
+                      <td>75</td>
+                    </tr>
+                    <tr>
+                      <td>멘토와 멘티끼리 서로 소통을 하는 멘토링이 되었다.</td>
+                      <td>24</td>
+                      <td>24</td>
+                      <td>8</td>
+                      <td>4</td>
+                      <td>4</td>
+                      <td>78.75</td>
+                    </tr>
+                    <tr>
+                      <td class="statisEntity" colspan="6">총 만족도</td>
+                      <td>80</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div id="mentiQuest01"></div>
+                    <script type="text/javascript">
+                      google.charts.load("current", {packages:["corechart"]});
+                      google.charts.setOnLoadCallback(drawChart);
+                      function drawChart() {
+                        var data = google.visualization.arrayToDataTable([
+                          ['점수', '투표 인원'],
+                          ['매우 만족', 48],
+                          ['만족', 4],
+                          ['보통', 4],
+                          ['미흡', 4],
+                          ['매우 미흡', 4]
+                        ]);
+
+                        var options = {
+                          title: '멘토가 수업 준비를 성실하게 해 온다.',
+                          pieHole: 0.4,
+                          height : 300,
+                        };
+
+                        var chart = new google.visualization.PieChart(document.getElementById('mentiQuest01'));
+                        chart.draw(data, options);
+                      }
+                      </script>
+                  </div>
+                  <div class="col-md-6">
+                    <div id="mentiQuest02"></div>
+                      <script type="text/javascript">
+                        google.charts.load("current", {packages:["corechart"]});
+                        google.charts.setOnLoadCallback(drawChart);
+                        function drawChart() {
+                          var data = google.visualization.arrayToDataTable([
+                            ['점수', '투표 인원'],
+                            ['매우 만족', 32],
+                            ['만족', 4],
+                            ['보통', 4],
+                            ['미흡', 4],
+                            ['매우 미흡', 4]
+                          ]);
+
+                          var options = {
+                            title: '멘토가 내주는 과제나 수업 내용들이 도움이 되었다.',
+                            pieHole: 0.4,
+                            height : 300,
+                          };
+
+                          var chart = new google.visualization.PieChart(document.getElementById('mentiQuest02'));
+                          chart.draw(data, options);
+                        }
+                        </script>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3"></div>
+                  <div class="col-md-6">
+                    <div id="mentiQuest03"></div>
+                      <script type="text/javascript">
+                        google.charts.load("current", {packages:["corechart"]});
+                        google.charts.setOnLoadCallback(drawChart);
+                        function drawChart() {
+                          var data = google.visualization.arrayToDataTable([
+                            ['점수', '투표 인원'],
+                            ['매우 만족', 24],
+                            ['만족', 24],
+                            ['보통', 8],
+                            ['미흡', 4],
+                            ['매우 미흡', 4]
+                          ]);
+
+                          var options = {
+                            title: '멘토와 멘티끼리 서로 소통을 하는 멘토링이 되었다.',
+                            pieHole: 0.4,
+                            height : 300,
+                          };
+
+                          var chart = new google.visualization.PieChart(document.getElementById('mentiQuest03'));
+                          chart.draw(data, options);
+                        }
+                        </script>
+                  </div>
+                  <div class="col-md-3"></div>
+                </div>
+                <hr/>
+                <h3><strong>개선 사항에 대한 설문조사 현황</strong></h3>
+                <table class="table table-bordered">
+                  <thead class="statisEntity">
+                    <tr>
+                      <td>설문자 이름</td>
+                      <td>내용</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>ㅇㅇㅇ</td>
+                      <td>개선 사항에 대한 설문조사를 출력 받을 부분입니다.</td>
+                    </tr>
+                    <tr>
+                      <td>ㅇㅇㅇ</td>
+                      <td>내용이 있는 것들로만 담을 계획입니다.</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr/>
+                <div class="row">
+                  <div class="col-md-12 information">
+                    <p> ⊙ 만족도를 계산하는 방법은 각 투표를 한 인원들의 가중치를 곱해서 더해서 계산을 진행합니다. </p>
+                    <p> (ex) 설문조사 참여 인원이 10명인데 그 중에서 5점이 4명, 4점이 4명, 3점이 2명이면, 5X4+4X4+3X2를 더해서 최대 만족 점수인 5X10을 나눈 뒤에 퍼센트화를 하면 됩니다. 42÷50X100=>84%. </p>
+                    <p> ⊙ 각 멘토, 멘티 별로 설문조사의 세부 체크는 개인 정보 보호 차원에서 볼 수 없습니다. 대신에 글로 작성하는 설문조사는 멘토의 성씨와 글 내용까지 공개 가능합니다. </p>
+                  </div>
+                </div>
+                <br/>
+                <form align="right">
+                  <button type="button" class="btn btn-info" type="button" data-toggle="collapse" data-target="#statisView" aria-expanded="false">
+                    <i class="glyphicon glyphicon-remove"> 닫기</i>
+                  </button>
+                </form>
+              </div>
+            </div>
+            <hr/>
+            <div class="row">
+              <h2>설문조사 문제 설정</h2>
+              <br/>
+              <h4>공통 문제 설정</h4>
+              <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active"><a href="#quest01" role="tab" data-toggle="tab">문제 1</a></li>
+                  <li role="presentation"><a href="#quest02" role="tab" data-toggle="tab">문제 2</a></li>
+                  <li role="presentation"><a href="#quest03" role="tab" data-toggle="tab">문제 3</a></li>
+                  <li role="presentation"><a href="#quest04" role="tab" data-toggle="tab">문제 4</a></li>
+                  <li role="presentation"><a href="#quest05" role="tab" data-toggle="tab">문제 5</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane fade in active" id="quest01">
+                    <div class="form-group floating-label-form-group controls">
+                      <br/>
+                      <label>문제</label>
+                      <input type="text" class="form-control" id="q1" value="SKHU Mentoring을 통해서 조원과 친해질 수 있는 계기가 되었다." placeholder="5지선 다형에 추가를 할 문제를 입력하세요. 비워 두면 비활성화 됩니다.">
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade " id="quest02">
+                    <div class="form-group floating-label-form-group controls">
+                      <br/>
+                      <label>문제</label>
+                      <input type="text" class="form-control" id="q2" value="SKHU Mentoring을 통해서 좋은 멘토링을 하는데 도움이 되었다." placeholder="5지선 다형에 추가를 할 문제를 입력하세요. 비워 두면 비활성화 됩니다.">
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade " id="quest03">
+                    <div class="form-group floating-label-form-group controls">
+                      <br/>
+                      <label>문제</label>
+                      <input type="text" class="form-control" id="q3" value="다음 학기에 SKHU Mentoring을 타 학우들에게 추천하고 싶다." placeholder="5지선 다형에 추가를 할 문제를 입력하세요. 비워 두면 비활성화 됩니다.">
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade " id="quest04">
+                    <br/>
+                    <label>문제</label>
+                    <input type="text" class="form-control" id="q4" value="" placeholder="5지선 다형에 추가를 할 문제를 입력하세요. 비워 두면 비활성화 됩니다.">
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade " id="quest05">
+                    <br/>
+                    <label>문제</label>
+                    <input type="text" class="form-control" id="q5" value="" placeholder="5지선 다형에 추가를 할 문제를 입력하세요. 비워 두면 비활성화 됩니다.">
+                  </div>
+                </div>
+              </div>
+              <br/>
+              <h4>멘토 문제 설정</h4>
+              <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active"><a href="#mentoQue01" role="tab" data-toggle="tab">문제 1</a></li>
+                  <li role="presentation"><a href="#mentoQue02" role="tab" data-toggle="tab">문제 2</a></li>
+                  <li role="presentation"><a href="#mentoQue03" role="tab" data-toggle="tab">문제 3</a></li>
+                  <li role="presentation"><a href="#mentoQue04" role="tab" data-toggle="tab">문제 4</a></li>
+                  <li role="presentation"><a href="#mentoQue05" role="tab" data-toggle="tab">문제 5</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane fade in active" id="mentoQue01">
+                    <div class="form-group floating-label-form-group controls">
+                      <br/>
+                      <label>문제</label>
+                      <input type="text" class="form-control" id="mentoq1" value="수업 시간에 멘토들이 잘 따른다." placeholder="5지선 다형에 추가를 할 문제를 입력하세요. 비워 두면 비활성화 됩니다.">
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade " id="mentoQue02">
+                    <div class="form-group floating-label-form-group controls">
+                      <br/>
+                      <label>문제</label>
+                      <input type="text" class="form-control" id="mentoq2" value="멘토링을 통해서 내 자신의 실력을 다시 되짚는 계기가 되었다." placeholder="5지선 다형에 추가를 할 문제를 입력하세요. 비워 두면 비활성화 됩니다.">
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade " id="mentoQue03">
+                    <div class="form-group floating-label-form-group controls">
+                      <br/>
+                      <label>문제</label>
+                      <input type="text" class="form-control" id="mentoq3" value="멘티들과 서로 소통하는 계기가 되었다." placeholder="5지선 다형에 추가를 할 문제를 입력하세요. 비워 두면 비활성화 됩니다.">
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade " id="mentoQue04">
+                    <br/>
+                    <label>문제</label>
+                    <input type="text" class="form-control" id="mentoq4" value="" placeholder="5지선 다형에 추가를 할 문제를 입력하세요. 비워 두면 비활성화 됩니다.">
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade " id="mentoQue05">
+                    <br/>
+                    <label>문제</label>
+                    <input type="text" class="form-control" id="mentoq5" value="" placeholder="5지선 다형에 추가를 할 문제를 입력하세요. 비워 두면 비활성화 됩니다.">
+                  </div>
+                </div>
+              </div>
+              <br/>
+              <h4>멘티 문제 설정</h4>
+              <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active"><a href="#mentiQue01" role="tab" data-toggle="tab">문제 1</a></li>
+                  <li role="presentation"><a href="#mentiQue02" role="tab" data-toggle="tab">문제 2</a></li>
+                  <li role="presentation"><a href="#mentiQue03" role="tab" data-toggle="tab">문제 3</a></li>
+                  <li role="presentation"><a href="#mentiQue04" role="tab" data-toggle="tab">문제 4</a></li>
+                  <li role="presentation"><a href="#mentiQue05" role="tab" data-toggle="tab">문제 5</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane fade in active" id="mentiQue01">
+                    <div class="form-group floating-label-form-group controls">
+                      <br/>
+                      <label>문제</label>
+                      <input type="text" class="form-control" id="mentiq1" value="멘토가 수업 준비를 성실하게 해 온다." placeholder="5지선 다형에 추가를 할 문제를 입력하세요. 비워 두면 비활성화 됩니다.">
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade " id="mentiQue02">
+                    <div class="form-group floating-label-form-group controls">
+                      <br/>
+                      <label>문제</label>
+                      <input type="text" class="form-control" id="mentiq2" value="멘토가 내주는 과제나 수업 내용들이 도움이 되었다." placeholder="5지선 다형에 추가를 할 문제를 입력하세요. 비워 두면 비활성화 됩니다.">
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade " id="mentiQue03">
+                    <div class="form-group floating-label-form-group controls">
+                      <br/>
+                      <label>문제</label>
+                      <input type="text" class="form-control" id="mentiq3" value="멘토와 멘티끼리 서로 소통을 하는 멘토링이 되었다." placeholder="5지선 다형에 추가를 할 문제를 입력하세요. 비워 두면 비활성화 됩니다.">
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade " id="mentiQue04">
+                    <br/>
+                    <label>문제</label>
+                    <input type="text" class="form-control" id="mentiq4" value="" placeholder="5지선 다형에 추가를 할 문제를 입력하세요. 비워 두면 비활성화 됩니다.">
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade " id="mentiQue05">
+                    <br/>
+                    <label>문제</label>
+                    <input type="text" class="form-control" id="mentiq5" value="" placeholder="5지선 다형에 추가를 할 문제를 입력하세요. 비워 두면 비활성화 됩니다.">
+                  </div>
+                </div>
+              </div>
+              <br/>
+              <form class="form-group">
+                <label>작성 문제 설정</label>
+                <input type="text" class="form-control" id="allWriteQuest" value="멘토링을 하면서 개선되었으면 좋은 점을 작성해주세요." placeholder="작성 문제에 추가를 할 문제를 입력하세요. 비워 두면 비활성화 됩니다.">
+              </form>
+              <form class="form-inline">
+                <label>설문조사 기간 설정 : </label>
+                <input type="date" class="form-inline" id="surveyOpenDate"> 부터
+                <input type="date" class="form-inline" id="surveyCloseDate"> 까지
+              </form>
+              <br/>
+              <form align="right">
+                <button type="button" class="btn btn-info" type="button">
+                  <i class="glyphicon glyphicon-ok"> 설정</i>
+                </button>
+              </form>
+            </div>
+            <hr/>
+          </div>
+        </div>
+      </div>
+    </div>
+  <hr/>
+    <div class="row">
+      <div class="col-md-3" align="center">
+        <img src="img/skhuniv.jpg"/>
+      </div>
+      <div class="col-md-9">
+        <p>08359 서울시 구로구 연동로 320 / 지하철 1, 7호선 온수역(성공회대입구역)</p>
+        <p><i class="glyphicon glyphicon-earphone"></i> TEL : 02-2610-4114 &nbsp&nbsp|&nbsp&nbsp <i class="glyphicon glyphicon-print"></i> FAX : 02-2683-8858</p>
+      </div>
+    </div>
+ </body>
+</html>

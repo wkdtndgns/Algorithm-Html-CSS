@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+ <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="stylesheet-pure-css.css">
+
+    <style>
+
+
+.navbar {
+  background-color: #ffffff;
+}
+.navbar .navbar-brand {
+  color: #9aadb2;
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+  color: #090909;
+}
+.navbar .navbar-text {
+  color: #9aadb2;
+}
+.navbar .navbar-nav .nav-link {
+  color: #9aadb2;
+  border-radius: .25rem;
+  margin: 0 0.25em;
+}
+.navbar .navbar-nav .nav-link:not(.disabled):hover,
+.navbar .navbar-nav .nav-link:not(.disabled):focus {
+  color: #090909;
+}
+.navbar .navbar-nav .nav-item.active .nav-link,
+.navbar .navbar-nav .nav-item.active .nav-link:hover,
+.navbar .navbar-nav .nav-item.active .nav-link:focus,
+.navbar .navbar-nav .nav-item.show .nav-link,
+.navbar .navbar-nav .nav-item.show .nav-link:hover,
+.navbar .navbar-nav .nav-item.show .nav-link:focus {
+  color: #090909;
+  background-color: #a2a39f;
+}
+.navbar .navbar-toggle {
+  border-color: #a2a39f;
+}
+.navbar .navbar-toggle:hover,
+.navbar .navbar-toggle:focus {
+  background-color: #a2a39f;
+}
+.navbar .navbar-toggle .navbar-toggler-icon {
+  color: #9aadb2;
+}
+.navbar .navbar-collapse,
+.navbar .navbar-form {
+  border-color: #9aadb2;
+}
+.navbar .navbar-link {
+  color: #9aadb2;
+}
+.navbar .navbar-link:hover {
+  color: #090909;
+}
+
+@media (max-width: 575px) {
+  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #9aadb2;
+  }
+  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #090909;
+  }
+  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #090909;
+    background-color: #a2a39f;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #9aadb2;
+  }
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #090909;
+  }
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #090909;
+    background-color: #a2a39f;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #9aadb2;
+  }
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #090909;
+  }
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #090909;
+    background-color: #a2a39f;
+  }
+}
+
+@media (max-width: 1199px) {
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #9aadb2;
+  }
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #090909;
+  }
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #090909;
+    background-color: #a2a39f;
+  }
+}
+
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
+  color: #9aadb2;
+}
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+  color: #090909;
+}
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
+  color: #090909;
+  background-color: #a2a39f;
+}
+      div.row{
+        margin-left : auto;
+        margin-right : auto;
+      }
+
+        .footer { border: 1px padding: 30px 10px; }
+        .footer{ position: absolute; bottom: 0; text-align: center; width: 100% }
+        .footer img { margin-right: 20px;  }
+        .footer div:nth-child(2) { font: normal 9pt 굴림; color: #666;  }
+        .footer div:nth-child(3) { font: normal 9pt arial; color: #aaa; }
+        .container { margin-top: 30px;  }
+        .title{
+          font-size: 20px;
+        }
+        input{
+          margin-left: 10px
+
+        }
+        .survey{
+          margin-top: 20px
+        }
+        input[type=radio] {
+          margin-right: 20px;
+        }
+        label {
+            display: inline-block;
+            cursor: pointer;
+            position: relative;
+            padding-left: 25px;
+            margin-right: 15px;
+            font-size: 13px;
+          }
+        .information{
+          padding-top : 15px;
+          padding-bottom : 5px;
+          background-color : #E6E6E6;
+          border : 1px solid #D8D8D8;
+          border-radius : 5px;
+          text-align : left;
+        }
+   </style>
+ </head>
+
+ <body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html"><img src="img\title.png"/></a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">
+          <i class="glyphicon glyphicon-home"> 홈</i></a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">참여마당
+          <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="notice.html">공지사항</a></li>
+              <li><a href="question.html">건의사항</a></li>
+            </ul>
+        </li>
+        <li>
+          <a href="intro.html">멘토링 사업소개</a>
+        </li>
+        <li class="dropdown active">
+          <a class="dropdown-toggle" data-toggle="dropdown">멘토링
+          <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="menti_apli.html">멘티 신청</a></li>
+              <li><a href="mento_apli.html">멘토 신청</a></li>
+              <li><a href="mento_list.html">멘토/멘티 목록</a></li>
+              <li><a href="mento_board.html">멘토링 게시판</a></li>
+              <li class="active"><a href="survey.html">설문조사</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">멘토링 관리
+          <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="mento_timetable.html">멘티 시간표 확인</a></li>
+              <li><a href="report_write.html">보고서 작성</a></li>
+              <li><a href="board_manage.html">멘토링 과제게시판 관리</a></li>
+            </ul>
+        </li>
+        <li class="dropdown ">
+          <a class="dropdown-toggle" data-toggle="dropdown">사이트 관리
+          <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="mento_open.html">멘토링 개설/폐쇄</a></li>
+              <li><a href="report_confirm.html">보고서 확인</a></li>
+              <li ><a href="survey_manage.html">설문조사 관리</a></li>
+              <li><a href="candidate_boolean.html">멘토, 멘티 신청기간 여부</a></li>
+              <li><a href="student_manage.html">회원 목록 관리</a></li>
+              <li><a href="intro_update.html">사업 안내문 수정</a></li>
+            </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login.html"><i class="glyphicon glyphicon-user"> 로그인</i></a></li>
+        <li><a href="sign.html"><i class="glyphicon glyphicon-pencil"> 회원가입</i></a></li>
+      </ul>
+    </div>
+   </nav>
+
+  <div>
+      <img src="img/topimage.jpg" class="img-responsive"/>
+  </div>
+
+<div class="container">
+
+      <div class="row">
+
+        <div class="col-md-3">
+          <h1 class="my-4"><strong>멘토링</strong></h1>
+          <div class="list-group">
+             <a href="menti_apli.html" class="list-group-item ">멘티 신청</a>
+            <a href="mento_apli.html" class="list-group-item ">멘토 신청</a>
+            <a href="mento_list.html" class="list-group-item">멘토/멘티 목록</a>
+            <a href="mento_board.html" class="list-group-item">멘토링 게시판</a>
+            <a href="survey.html" class="list-group-item active">설문조사</a>
+
+          </div>
+        </div>
+        <!-- /.col-lg-3 -->
+
+    <div class="col-md-9">
+      <!-- Introduction Row -->
+      <h1 class="my-4"><strong>설문 조사</strong></h1>
+      <h3 class="my-4">전체적으로 SKHU Mentoring 사업에 대해서 평가를 해주시길 바랍니다.<br>(멘토, 멘티 모두)</h3>
+      <div class="survey">
+          <h4>SKHU Mentoring을 통해서 조원과 친해질 수 있는 계기가 되었다.</h4>
+          <h5>(5점 : 매우 만족, 4점 : 만족, 3점 : 보통, 2점 : 미흡, 1점 : 매우 미흡)</h5>
+          <br/>
+          <label class="radio-inline">
+            <input type="radio" name="question01" id="question01_5" value="5"> 5점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="question01" id="question01_4" value="4"> 4점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="question01" id="question01_3" value="3"> 3점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="question01" id="question01_2" value="2"> 2점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="question01" id="question01_1" value="1"> 1점
+          </label>
+      </div>
+      <hr/>
+      <div class="survey">
+          <h4>SKHU Mentoring을 통해서 좋은 멘토링을 하는데 도움이 되었다.</h4>
+          <h5>(5점 : 매우 만족, 4점 : 만족, 3점 : 보통, 2점 : 미흡, 1점 : 매우 미흡)</h5>
+          <br/>
+          <label class="radio-inline">
+            <input type="radio" name="question02" id="question02_5" value="5"> 5점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="question02" id="question02_4" value="4"> 4점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="question02" id="question02_3" value="3"> 3점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="question02" id="question02_2" value="2"> 2점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="question02" id="question02_1" value="1"> 1점
+          </label>
+      </div>
+      <hr/>
+      <div class="survey">
+          <h4>다음 학기에 SKHU Mentoring을 타 학우들에게 추천하고 싶다.</h4>
+          <h5>(5점 : 매우 만족, 4점 : 만족, 3점 : 보통, 2점 : 미흡, 1점 : 매우 미흡)</h5>
+          <br/>
+          <label class="radio-inline">
+            <input type="radio" name="question03" id="question03_5" value="5"> 5점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="question03" id="question03_4" value="4"> 4점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="question03" id="question03_3" value="3"> 3점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="question03" id="question03_2" value="2"> 2점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="question03" id="question03_1" value="1"> 1점
+          </label>
+      </div>
+      <hr style="border : 1px dashed green;"/>
+      <h3 class="my-4">멘토들에게 해당하는 문제입니다.</h3>
+      <div class="survey">
+          <h4>수업 시간에 멘토들이 잘 따른다.</h4>
+          <h5>(5점 : 매우 만족, 4점 : 만족, 3점 : 보통, 2점 : 미흡, 1점 : 매우 미흡)</h5>
+          <br/>
+          <label class="radio-inline">
+            <input type="radio" name="mentoQuest01" id="mentoQuest01_5" value="5"> 5점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentoQuest01" id="mentoQuest01_4" value="4"> 4점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentoQuest01" id="mentoQuest01_3" value="3"> 3점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentoQuest01" id="mentoQuest01_2" value="2"> 2점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentoQuest01" id="mentoQuest01_1" value="1"> 1점
+          </label>
+      </div>
+      <hr/>
+      <div class="survey">
+          <h4>멘토링을 통해서 내 자신의 실력을 다시 되짚는 계기가 되었다.</h4>
+          <h5>(5점 : 매우 만족, 4점 : 만족, 3점 : 보통, 2점 : 미흡, 1점 : 매우 미흡)</h5>
+          <br/>
+          <label class="radio-inline">
+            <input type="radio" name="mentoQuest02" id="mentoQuest02_5" value="5"> 5점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentoQuest02" id="mentoQuest02_4" value="4"> 4점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentoQuest02" id="mentoQuest02_3" value="3"> 3점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentoQuest02" id="mentoQuest02_2" value="2"> 2점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentoQuest02" id="mentoQuest02_1" value="1"> 1점
+          </label>
+      </div>
+      <hr/>
+      <div class="survey">
+          <h4>멘티들과 서로 소통하는 계기가 되었다.</h4>
+          <h5>(5점 : 매우 만족, 4점 : 만족, 3점 : 보통, 2점 : 미흡, 1점 : 매우 미흡)</h5>
+          <br/>
+          <label class="radio-inline">
+            <input type="radio" name="mentoQuest03" id="mentoQuest03_5" value="5"> 5점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentoQuest03" id="mentoQuest03_4" value="4"> 4점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentoQuest03" id="mentoQuest03_3" value="3"> 3점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentoQuest03" id="mentoQuest03_2" value="2"> 2점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentoQuest03" id="mentoQuest03_1" value="1"> 1점
+          </label>
+      </div>
+      <hr style="border : 1px dashed green;"/>
+      <h3 class="my-4">멘티들에게 해당하는 문제입니다.</h3>
+      <div class="survey">
+          <h4>멘토가 수업 준비를 성실하게 해 온다.</h4>
+          <h5>(5점 : 매우 만족, 4점 : 만족, 3점 : 보통, 2점 : 미흡, 1점 : 매우 미흡)</h5>
+          <br/>
+          <label class="radio-inline">
+            <input type="radio" name="mentiQuest01" id="mentiQuest01_5" value="5"> 5점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentiQuest01" id="mentiQuest01_4" value="4"> 4점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentiQuest01" id="mentiQuest01_3" value="3"> 3점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentiQuest01" id="mentiQuest01_2" value="2"> 2점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentiQuest01" id="mentiQuest01_1" value="1"> 1점
+          </label>
+      </div>
+      <hr/>
+      <div class="survey">
+          <h4>멘토가 내주는 과제나 수업 내용들이 도움이 되었다.</h4>
+          <h5>(5점 : 매우 만족, 4점 : 만족, 3점 : 보통, 2점 : 미흡, 1점 : 매우 미흡)</h5>
+          <br/>
+          <label class="radio-inline">
+            <input type="radio" name="mentiQuest02" id="mentiQuest02_5" value="5"> 5점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentiQuest02" id="mentiQuest02_4" value="4"> 4점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentiQuest02" id="mentiQuest02_3" value="3"> 3점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentiQuest02" id="mentiQuest02_2" value="2"> 2점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentiQuest02" id="mentiQuest02_1" value="1"> 1점
+          </label>
+      </div>
+      <hr/>
+      <div class="survey">
+          <h4>멘토와 멘티끼리 서로 소통을 하는 멘토링이 되었다.</h4>
+          <h5>(5점 : 매우 만족, 4점 : 만족, 3점 : 보통, 2점 : 미흡, 1점 : 매우 미흡)</h5>
+          <br/>
+          <label class="radio-inline">
+            <input type="radio" name="mentiQuest03" id="mentiQuest03_5" value="5"> 5점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentiQuest03" id="mentiQuest03_4" value="4"> 4점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentiQuest03" id="mentiQuest03_3" value="3"> 3점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentiQuest03" id="mentiQuest03_2" value="2"> 2점
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="mentiQuest03" id="mentiQuest03_1" value="1"> 1점
+          </label>
+      </div>
+      <hr style="border : 1px dashed green;"/>
+      <div class="survey">
+          <h4>멘토링을 하면서 개선되었으면 좋은 점을 작성해주세요.</h4>
+          <h5>(멘토, 멘티 모두 해당.)</h5>
+          <br/>
+          <textarea class="form-control" rows="5"></textarea>
+          <br/>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 information">
+          <p> ⊙ 설문조사는 분기 별로 진행을 하시면 됩니다. </p>
+          <p> ⊙ 설문조사는 가급적이면 기한 이내로 진행해주시면 됩니다. </p>
+          <p> ⊙ 설문조사의 내용은 추후에 바뀔 수 있으니 이 점 참고하시길 바랍니다. </p>
+        </div>
+      </div>
+      <div style="margin-top: 20px">
+        <p><h3>설문조사를 완료하셨으면, 완료 버튼을 눌러 주세요.</h3></p>
+        <button type="submit" class="btn btn-primary">완료</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <hr/>
+  <div class="row">
+    <div class="col-md-3" align="center">
+      <img src="img/skhuniv.jpg"/>
+    </div>
+    <div class="col-md-9">
+      <p>08359 서울시 구로구 연동로 320 / 지하철 1, 7호선 온수역(성공회대입구역)</p>
+      <p><i class="glyphicon glyphicon-earphone"></i> TEL : 02-2610-4114 &nbsp&nbsp|&nbsp&nbsp <i class="glyphicon glyphicon-print"></i> FAX : 02-2683-8858</p>
+    </div>
+  </div>
+ </body>
+
+</html>
