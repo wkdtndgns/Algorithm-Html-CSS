@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+
+ <head>
+	<title>미리 정의된 태그</title>
+ </head>
+
+ <body>
+
+	<h1>문서의 제목</h1>
+
+	<!-- width 값으로 (50%) 비율값 과 (100) 픽셀값을 넣을 수 있음 -->	
+
+	<hr width="100" />
+	문서의구분선
+	<hr/>
+
+	<p>단락구분</p>
+	<strong>중요한 문장</strong>
+	<br/>줄 바꿈
+	
+	<p> - </p>
+	<!-- 사용자 정의 태그 -->
+
+	<company>성공회테크놀로지
+		
+		<department>연구개발부</department>
+
+		<department>디자인부
+			<team>그래픽팀</team>
+		</department>
+	
+	</company>
+	<p/>
+	
+	
+	<university>성공회대학교
+		<major>컴퓨터과학</major>
+		<major>경영정보학</major>
+ 	</university>
+	
+
+	<!--태그 속성 사용하기 -->
+	<p>
+ 	<company location="서울"> 주식회사 마음 <br/>
+ 		
+ 		<department title ="영업부 멤버 보기">
+ 			<a href="#mem1"> 영업부 </a>
+ 		</department><br>
+		
+		<department title ="편집부 멤버 보기">
+			<a href="#mem2"> 편집부 </a>
+		</department>
+	
+	</company>	
+	
+	<p> - </p> <p> - </p>
+	<p> - </p> <p> - </p>
+	<p> - </p> <p> - </p>
+	<p> - </p> <p> - </p>
+	<p> - </p> <p> - </p>
+	<p> - </p> <p> - </p>
+
+	<staff id="mem1"> 영업부 멤버 이름
+		<hr/>
+
+		<member position="과장">박지혜</member>
+		<member>홍민성 </member>
+		<member hidden="hidden">최미래</member>
+	</staff>
+
+	<hr/>
+
+	<p> - </p> <p> - </p>
+	<p> - </p> <p> - </p>
+	<p> - </p> <p> - </p>
+	<p> - </p> <p> - </p>
+	<p> - </p> <p> - </p>
+	<p> - </p> <p> - </p>
+
+	<staff id="mem2"> 편집부 멤버 이름
+		<hr/>
+
+		<member position="부장">김서울</member>
+		<member hidden="hidden">나하늘</member>
+		<member>홍현성</member>
+	</staff>
+
+	<hr/>
+
+	<p> - </p> <p> - </p>
+	<p> - </p> <p> - </p>
+	<p> - </p> <p> - </p>
+	<p> - </p> <p> - </p>
+	<p> - </p> <p> - </p>
+	<p> - </p> <p> - </p>
+	
+	</p>
+	
+ </body>
+
+</html>

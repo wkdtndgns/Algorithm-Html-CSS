@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>멀티미디어 태그</title>
+	
+	</head>
+
+	<body>
+
+		<h3>이미지 기본 표현</h3>
+		<img src="html4.jpg" alt="이미지가 표시되지 않습니다."  >
+		
+		<h3>이미지에 설명 추가 & 오른쪽 정렬</h3>
+		<img src="html5.jpg" title="HTML5 로고 이미지" style="float: right;">
+
+		<h3>이미지의 크기를 픽셀 단위로 조정</h3>
+		<img src="html4.jpg" style="width: 50px; height: 60px">
+
+		<h3>이미지의 크기를 % 단위로 조정</h3>
+		<img src="html5.jpg" width="50%" height="40%" >	
+
+
+
+		<h3>이미지를 클릭하세요.</h3>
+		<a href="http://www.w3.org" target="_blank"><img src="html54.jpg" alt="HTML5 Logo" title="W3C 홈페이지로 이동" border="2" style="width: 100px; height: 110px"></a>
+
+		<a href="http://cafe.naver.com/go2web" target="_blank"><img src="go2web.jpg" alt="go2web site" title="저자 홈페이지로 이동" border="2" style="width: 100px; height: 110px"> </a>
+
+		<a href="http://en.wikipedia.org/wiki/Isaac_Newton" target="_blank"><img src="newton.gif" alt="newton site" title="뉴턴 홈페이지로 이동" border="2" style="width: 170px; height: 110px"></a>
+
+
+
+		<h3>이미지에 제목 추가하기</h3>
+		<figure>
+			<img src="html5.jpg" alt="HTML5 Log" title="W3C 홈페이지">
+			<figcaption>[그림1] HTML5</figcaption>
+			
+		</figure>	
+	
+		<figure>
+			<figcaption>[그림2]Google</figcaption>
+			<img src="google.jpg" alt="google site" title="구글 크롬">
+		</figure>
+
+		<h3>오디오 자동 재생</h3>
+		<audio src="eagle.mp3" controls loop autoplay></audio>
+		<h3>오디오 수동 재생</h3>
+		<audio src="bear.mp3" controls></audio>
+		<h3>오디오 다중 재생</h3>
+		<audio controls>
+			<source src="chicken.mp3" type="audio/mpeg">
+			<source src="chicken.ogg" type="audio/ogg">
+			<source src="chicken.wav" type="audio.wav">	
+			오디오 파일을 재생할 수 없습니다.
+		</audio>
+	</body>
+
+</html>

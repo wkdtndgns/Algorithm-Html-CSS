@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>1012 2017 form 03.html</title>
+</head>
+<body>
+	<section>
+		<article>
+				
+			<form>
+				<table style="width: 50%">
+				   <tbody>
+
+					<tr>
+						<th>이름</th>
+						<td><input type="text" name="name" autofocus></td>
+					</tr>
+
+					<tr>
+						<th>주민등록번호</th>
+						<td><input type="text" name="address1"> - <input type="text" name="address2"></td>
+						
+					</tr>
+
+					<tr>
+						<th>아이디</th>
+						<td><input type="text" name="id" required></td>
+					</tr>
+
+					<tr> 
+						<th>비밀번호</th>
+						<td><input type="password" name="password" required>영문/숫자포함 6자 이상</td>
+					</tr>
+
+					<tr>
+						<th>비밀번호 확인</th>
+						<td><input type="password" name="password2" required></td>
+					</tr>
+
+					<tr>
+						<th>비밀번호 힌트/답변</th>
+						<td>
+						<select name="hint">
+							<option value="1" selected>선택하세요.</option>
+							<option value="2">가장 기억에 남는 장소는?</option>
+							<option vlaue="3">나의 좌우명은? </option>
+							<option value="4">나의 보물 1호는? </option>
+							<option value="5">본인의 출생지는? </option>
+							<option value="6">본인의 애창곡은?</option>
+							<option value="7">가장 생각나는 친구 이름은?</option>
+						</select>
+						</td>
+
+					</tr>
+
+					<tr>
+						<th>답변</th>
+						<td><input type="text" name="answer"></td>
+					</tr>
+					<tr>
+						<th>이메일</th>
+						<td>
+							<input type="text" name="email1"> @ <input type="text" name="email2">
+
+							<select name="email_insert">
+								<option value="1" selected>직접입력</option>
+								<option value="2">daum.net</option>
+								<option value="3">gmail.com</option>
+								<option value="4">hanmail.net</option>
+								<option value="5">msn.com</option>
+								<option value="6">naver.com</option>
+								<option value="7">nate.com</option>
+							</select>
+
+						</td>
+					</tr>
+
+					<tr>
+						<th>주소</th>
+						<td><input type="text" name="address1"> - <input type="text" name="address2"> <input type="text" name="address3"> <input type="text" name="address4"></td>
+					</tr>
+
+					<tr>
+						<th>전화번호</th>
+						<td>
+						<input type="text" name="number1"> - <input type="text" name="number2"> - <input type="text" name="number3">
+						</td>
+					</tr>
+				
+					<tr>
+						<th>핸드폰 번호</th>
+						<td>
+						<input type="text" name="phone1" placeholder="                  010"> - <input type="text" name="phone2"> - <input type="text" name="phone3">
+						</td>
+					</tr>
+
+					<tr>
+						<th>직업</th>
+						<td>					
+							<select name="job">
+								<option value="1" selected>선택하세요.</option>
+								<option value="2">학생</option>
+								<option value="3">컴퓨터/인터넷</option>
+								<option value="4">언론</option>
+								<option value="5">공무원</option>
+								<option value="6">군인</option>
+								<option value="7">서비스업</option>
+								<option value="8">교육</option>
+								<option value="9">금융/증권/보험업</option>
+								<option value="10">유통업</option>
+								<option value="11">예술</option>
+								<option value="12">의료</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<th>메일/sns정보 수신</th>
+						<td>
+						<input type="radio" name="receive" value="on" checked> 수신
+						<input type="radio" name="receive" value="off"> 수신거부
+						</td>
+					</tr>
+
+					<tr>
+						<th>관심분야</th>
+						<td> 
+							<input type="checkbox" name="subject" value="html5" >html5
+							<input type="checkbox" name="subject" value="css3">css3
+							<input type="checkbox" name="subject" value="javascript">javascript
+							<input type="checkbox" name="subject" value="php">php
+							<input type="checkbox" name="subject" value="jquery">jquery
+						</td>
+					</tr>
+
+					<tr>
+						<th>가입경로</th>
+						<td>
+							<select name="path">
+								<option value="1" selected>선택하세요.</option>
+								<option value="2">네이버 검색</option>
+								<option value="3">다음 검색</option>
+								<option value="4">기타 검색 엔진</option>
+								<option value="5">카페 or 동호회를 통해</option>
+								<option value="6">지인의 소개</option>
+								<option value="7">기타</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<th>정보 공개 여부</th>
+						<td>
+							<select name="informaion_open">
+								<option value="1">선택하세요.</option>
+								<option value="2">모두 공개</option>
+								<option value="3">비공개</option>
+								<option value="4">1단계 공개</option>
+								<option value="5">2단계 공개</option>
+							</select>
+						</td>
+					</tr>
+				  </tbody>
+				  
+				  <tfoot>	
+
+					<tr>
+						<td></td>
+						<td style="float: right;"><input type="submit" value="회원가입"><input type="reset" value="취소"></td>
+
+					</tr>
+				  </tfoot>	
+				  
+				</table>
+			</form>
+	 	</article>
+
+	</section>
+	
+
+
+</body>
+</html>
